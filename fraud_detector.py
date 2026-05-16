@@ -659,7 +659,8 @@ def main():
         reports.append(report)
         if not args.json:
             c = "\033[91m" if report.composite_score >= args.threshold else "\033[92m"
-            print(f" {c}{report.composite_score:.1f}{'\033[0m'}")
+            reset = "\033[0m"
+            print(f" {c}{report.composite_score:.1f}{reset}")
 
     if args.json:
         output = [report_to_dict(r) for r in reports]
